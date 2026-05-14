@@ -133,16 +133,21 @@ img { max-width: 100%; display: block; }
   color: var(--white); line-height: 1.15; margin-bottom: 1rem;
 }
 .hero-name span { color: var(--accent); }
-.hero-role { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.hero-role { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 1.25rem; align-items: center; }
 .role-badge {
   display: inline-flex; align-items: center; gap: .4rem;
   background: rgba(255,255,255,.1); color: var(--white);
   padding: .4rem 1rem; border-radius: 50px; font-size: .85rem; font-weight: 500;
   border: 1px solid rgba(255,255,255,.15);
 }
+.role-badge-ipk {
+  background: rgba(14,165,233,.25);
+  border-color: rgba(14,165,233,.4);
+  color: #bae6fd;
+}
 .hero-desc { color: rgba(255,255,255,.75); font-size: 1rem; max-width: 480px; margin-bottom: 2rem; }
 .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
-.hero-socials { display: flex; gap: 1rem; }
+.hero-socials { display: flex; gap: 1rem; align-items: center; }
 .hero-socials a {
   width: 42px; height: 42px; border-radius: 50%;
   background: rgba(255,255,255,.1); color: var(--white);
@@ -151,6 +156,17 @@ img { max-width: 100%; display: block; }
   border: 1px solid rgba(255,255,255,.15);
 }
 .hero-socials a:hover { background: var(--primary); transform: translateY(-3px); }
+
+.social-exp-badge {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: rgba(255,255,255,.1); color: var(--white);
+  padding: .4rem .9rem; border-radius: 50px;
+  border: 1px solid rgba(255,255,255,.15);
+  font-size: .82rem;
+}
+.social-exp-badge i { color: var(--accent); font-size: 1rem; }
+.social-exp-badge .card-value { display: block; font-size: 1rem; font-weight: 700; line-height: 1; }
+.social-exp-badge .card-label { display: block; font-size: .65rem; opacity: .75; }
 
 .hero-photo { position: relative; display: flex; justify-content: center; align-items: center; }
 .photo-wrapper {
