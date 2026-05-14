@@ -126,6 +126,7 @@ const certData = {
     issuer: 'Smartcounting Academy Training Center & Research',
     color: 'linear-gradient(135deg, #2563eb, #0ea5e9)',
     icon: 'fas fa-chart-bar',
+    img: 'cert-accurate.jpg',
     date: '19 Januari 2025',
     period: '13–15 Januari 2025',
     number: '00580/ACD-SA/I/2025',
@@ -147,6 +148,7 @@ const certData = {
     issuer: 'PT Zahir Internasional — UIN Sunan Kalijaga Yogyakarta',
     color: 'linear-gradient(135deg, #7c3aed, #a855f7)',
     icon: 'fas fa-chart-line',
+    img: 'cert-zahir.jpg',
     date: '23 Agustus 2023',
     period: null,
     number: '17611/ZHR-WRK/VIII/2023',
@@ -163,6 +165,7 @@ const certData = {
     issuer: 'Kantor Kementerian Agama Kota Yogyakarta',
     color: 'linear-gradient(135deg, #dc2626, #ef4444)',
     icon: 'fas fa-briefcase',
+    img: 'cert-magang.jpg',
     date: '22 Februari 2023',
     period: '02 Januari 2023 – 10 Februari 2023',
     number: '1059/Kk.12.05/HM.01/02/2023',
@@ -198,11 +201,15 @@ function openModal(id) {
     ? `<a href="${data.verifyUrl}" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Verifikasi Sertifikat</a>`
     : '';
 
+  const iconOrImg = data.img
+    ? `<div class="modal-cert-icon" style="width:72px;height:72px;border-radius:${data.img ? '12px' : 'var(--radius-sm)'};overflow:hidden;flex-shrink:0;">
+        <img src="${data.img}" alt="${data.title}" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+       </div>`
+    : `<div class="modal-cert-icon" style="background:${data.color}"><i class="${data.icon}"></i></div>`;
+
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-cert-header">
-      <div class="modal-cert-icon" style="background:${data.color}">
-        <i class="${data.icon}"></i>
-      </div>
+      ${iconOrImg}
       <div>
         <h3>${data.title}</h3>
         <p>${data.issuer}</p>
