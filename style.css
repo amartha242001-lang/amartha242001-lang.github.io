@@ -672,7 +672,7 @@ img { max-width: 100%; display: block; }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.75rem;
 }
 
@@ -811,8 +811,8 @@ img { max-width: 100%; display: block; }
 }
 .project-local-note i { color: #f59e0b; }
 
-@media (max-width: 1024px) {
-  .projects-grid { grid-template-columns: 1fr 1fr; }
+@media (max-width: 1280px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
   .projects-grid { grid-template-columns: 1fr; }
@@ -1149,4 +1149,135 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 640px) {
   .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================
+   EXCELKU ANIMATION
+   ===================== */
+.proj-header-excel {
+  background: linear-gradient(135deg, #064e3b 0%, #16a34a 100%);
+}
+.anim-excel {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 100%;
+}
+.excel-grid {
+  display: grid;
+  grid-template-columns: 18px repeat(3, 38px);
+  grid-template-rows: repeat(4, 22px);
+  gap: 2px;
+  background: rgba(255,255,255,0.12);
+  padding: 6px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.excel-corner { background: rgba(255,255,255,0.1); border-radius: 3px; }
+.excel-col-head, .excel-row-head {
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .62rem; font-weight: 700; color: #fff;
+}
+.excel-cell {
+  background: rgba(255,255,255,0.85);
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .55rem; font-weight: 700; color: #16a34a;
+  animation: excelCellFill 3s ease-in-out infinite;
+}
+.excel-cell-1 { animation-delay: 0s; }
+.excel-cell-2 { animation-delay: 0.15s; }
+.excel-cell-3 { animation-delay: 0.3s; }
+.excel-cell-4 { animation-delay: 0.45s; }
+.excel-cell-5 { animation-delay: 0.6s; }
+.excel-cell-6 { animation-delay: 0.75s; }
+.excel-cell-7 { animation-delay: 0.9s; }
+.excel-cell-8 { animation-delay: 1.05s; }
+@keyframes excelCellFill {
+  0%,10%  { background: rgba(255,255,255,0.3); }
+  30%,80% { background: rgba(255,255,255,0.85); }
+  95%,100%{ background: rgba(255,255,255,0.3); }
+}
+.excel-cell-active {
+  background: #fbbf24 !important;
+  color: #064e3b !important;
+  animation: excelFormula 3s ease-in-out infinite !important;
+  box-shadow: 0 0 8px rgba(251,191,36,0.6);
+}
+@keyframes excelFormula {
+  0%,40%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(251,191,36,0.6); }
+  60%      { transform: scale(1.12); box-shadow: 0 0 0 5px rgba(251,191,36,0); }
+  80%,100% { transform: scale(1); }
+}
+
+/* =====================
+   CV BUILDER ANIMATION
+   ===================== */
+.proj-header-cv {
+  background: linear-gradient(135deg, #312e81 0%, #6366f1 100%);
+}
+.anim-cv {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; width: 100%; height: 100%;
+}
+.cv-paper {
+  background: rgba(255,255,255,0.92);
+  border-radius: 6px;
+  padding: 10px;
+  width: 80px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+.cv-paper:first-child {
+  display: flex; gap: 6px; align-items: center;
+  animation: cvFloat 3s ease-in-out infinite;
+}
+.cv-photo {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  flex-shrink: 0;
+  animation: cvPhotoPop 3s ease infinite;
+}
+@keyframes cvPhotoPop {
+  0%,15% { transform: scale(0); }
+  30%,100% { transform: scale(1); }
+}
+.cv-head-lines { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.cv-line { height: 5px; border-radius: 3px; background: #c7d2fe; }
+.cv-line-name { width: 100%; background: #6366f1; }
+.cv-line-sub  { width: 70%; }
+
+.cv-paper-body {
+  display: flex; flex-direction: column; gap: 5px;
+  animation: cvFloat 3s ease-in-out 0.3s infinite;
+}
+.cv-paper-body .cv-line { width: 0%; animation: cvLineGrow 3s ease-in-out infinite; }
+.cv-l1 { animation-delay: 0.4s !important; }
+.cv-l2 { animation-delay: 0.7s !important; }
+.cv-l3 { animation-delay: 1.0s !important; }
+.cv-l4 { animation-delay: 1.3s !important; }
+@keyframes cvLineGrow {
+  0%,10%  { width: 0%; }
+  35%,80% { width: 100%; }
+  95%,100%{ width: 0%; }
+}
+.cv-l2 { max-width: 85%; }
+.cv-l3 { max-width: 95%; }
+.cv-l4 { max-width: 60%; }
+
+@keyframes cvFloat {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+.cv-pen {
+  position: absolute;
+  bottom: 18px; right: 30px;
+  font-size: 1.3rem;
+  animation: cvWrite 2s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+@keyframes cvWrite {
+  0%,100% { transform: translateX(0) rotate(0deg); }
+  25%      { transform: translateX(-4px) rotate(-8deg); }
+  75%      { transform: translateX(4px) rotate(8deg); }
 }
